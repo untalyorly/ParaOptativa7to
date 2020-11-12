@@ -3,7 +3,7 @@
     margin: 0;
 }
 .contenedor{
-    background-image: url('../img/fondo.jpg');
+    background-image: url('../assets/img/fondo.jpg');
     background-size: cover;
     height: 100vh;
     display: grid;
@@ -40,6 +40,19 @@
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
 }
+.divlogi{
+    border-bottom: 1px solid #333;
+    text-align: initial;
+    margin-bottom: 20px;
+}
+.inputlogi{
+    border: none;
+    outline: none;
+    height: 40px;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+}
 .boton{
     display: block;
     width: 100%;
@@ -64,11 +77,21 @@
     text-align: left;
     color: #333;
 }
-a{
+.formlogin a{
     text-decoration: none;
     color:#7890bd ;
     transition: .3s;
 }
-a:hover{
+.formlogin a:hover{
     color: #93b1e9;
+}
+.div2{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.div2 div{
+    padding-right: 15px;
+    padding-left: 15px;
 }
