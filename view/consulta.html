@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Optativa I</title>
+</head>
+<body>
+    <header class="menu">
+        <img src="../assets/img/logo.png" alt="logo">
+        <nav>
+            <ul>
+                <li><a href="#">Consulta</a></li>
+                <li><a href="#">Administración</a></li>
+                <li><a href="#" id="sesion">Cerrar sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="FormReserva">
+        <form id="Filtrar">
+            <p>
+              Filtrar por: 
+              <select name="filtrarPor" id="filtrarPor">
+                <option value="Medicina General">Medicina General</option>
+                <option value="Ginecología">Ginecología</option>
+                <option value="Cardiología">Cardiología</option>
+                <option value="Odontología">Odontología</option>               
+            </select>
+              <input type="submit" value="Filtrar">
+            </p>
+          
+        </form>
+        <form id="BusquedaCita">
+            <p>
+              Buscar por: 
+              <select name="busquedaPor" id="busquedaPor">
+                <option value="cedula">Cedula</option>
+                <option value="nombres">Nombres</option>
+                <option value="apellidos">Apellidos</option>
+                <option value="edad">Edad</option>                
+            </select>
+              <input type="search" id="Busqueda" name="busqueda">
+              <input type="submit" value="Buscar">
+            </p>
+        </form>
+        <form id="FiltrarFecha">
+            <p>
+              Fecha desde:
+              <input type="date" name="desde" id="desde">
+              Hasta:
+              <input type="date" name="hasta" id="hasta">
+              <input type="submit" value="Filtrar">
+            </p>
+          
+        </form>
+        <div class="eldivtable">
+        <table id='CitasContenedor'>
+            <thead>
+                <tr>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Edad</th>
+                    <th>Sexo</th>
+                    <th>Telefono</th>
+                    <th>Correo</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody id="BodyCitas"></tbody>
+        </table>
+        </div>
+    </div>
+    <div class="ventanaModal" id="ventanaModal"> 
+        <div class="modal">
+            <h1>Informe de la cita</h1>
+            <div id="modal"></div>
+            <button id="cerrarModal">Cerrar</button>
+            <button id="aprobar">Aprobar</button>
+            <button id="negar">Negar</button>
+        </div>
+    </div>
+</body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+<script src="../js/citas.js" ></script>
+</html>

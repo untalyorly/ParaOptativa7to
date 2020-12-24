@@ -2,10 +2,14 @@
     padding: 0;
     margin: 0;
 }
-.contenedor{
-    background-image: url('../assets/img/fondo.jpg');
+
+body{
+    background-image: url('../assets/img/fondo3.jpg');
     background-size: cover;
     background-attachment: fixed;
+    height: 100vh; 
+}
+.contenedor{
     height: 100vh;
     display: grid;
     padding: 0 2rem;
@@ -18,7 +22,7 @@
 }
 .formlogin{
     padding: 25px;
-    background: white;
+    background: rgb(255 254 254 / 70%);
     border-radius: 10px;
 }
 .avatar{
@@ -53,6 +57,7 @@
     color: #333;
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
+    background: none;
 }
 .boton{
     display: block;
@@ -63,7 +68,7 @@
     outline: none;
     border: none;
     border-radius: 25px;
-    background-image: linear-gradient(to right, #7890bd, #93b1e9, #7890bd);
+    background-color: #4abdac;
     transition: .5%;
     color: #fff;
     text-transform: uppercase;
@@ -80,11 +85,11 @@
 }
 .formlogin a{
     text-decoration: none;
-    color:#7890bd ;
+    color:#4A94BD ;
     transition: .3s;
 }
 .formlogin a:hover{
-    color: #93b1e9;
+    color: #4abdac;
 }
 .div2{
     display: flex;
@@ -100,14 +105,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 10%;
-    background-image: linear-gradient(to right, #7890bd, #93b1e9, #7890bd);
+    padding: 12px 10%;
+    background-color: #fff;
+}
+.menu img{
+    width: 12em;
 }
 .menu li, .menu a{
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
-    color: white;
-    text-transform: uppercase;
+    color: #333;
     text-decoration: none;
     list-style: none;
     display: inline-block;
@@ -115,6 +122,71 @@
     transition: .3s;
 }
 .menu li a:hover{
-    color: #416ec2;
+    color: #4abdac;
     cursor: pointer;
+}
+.FormReserva{
+    margin: 10px auto;
+    width: 65%;
+}
+.DatosPaci{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.inputReser{
+    outline: none;
+    height: 20px;
+    width: 100%;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+}
+.celdaDato{
+    margin: 20px 0;
+    padding-right: 20%;
+}
+.eldivtable{
+    overflow:scroll;
+    height:400px;
+    width:100%;
+}
+table {
+    width: 100%;
+    border: 1px solid #000;
+    border-collapse: collapse;
+    background: rgb(255 254 254 / 80%);
+ }
+ th, td {
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid #000;
+    padding: 10px 0.3em;
+    caption-side: bottom;
+ }
+.ventanaModal{
+    display: flex;
+    background-color: rgba(0,0,0,0.3);
+    align-items: center;
+    justify-content: center;
+    position:fixed;
+    pointer-events: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+.show{
+    pointer-events: auto;
+    opacity: 1;
+}
+.modal{
+    background-color: rgba(97, 202, 228, 0.952);
+    color: #333;
+    width: 600px;
+    max-width: 100%;
+    padding: 30px 50px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    text-align: center;
 }

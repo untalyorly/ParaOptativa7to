@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Optativa I</title>
+</head>
+<body>
+    <header class="menu">
+        <img src="../assets/img/logo.png" alt="logo">
+        <nav>
+            <ul>
+                <li><a href="./principal.html">Inicio</a></li>
+                <li><a href="#">Reservar Cita</a></li>
+                <li><a href="./miscitas.html">Mis Citas</a></li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#" id="sesion">Cerrar sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="contenedor">
+    <div class="FormReserva">
+        <form id="ReservaCita">
+            <h2 class="titulo">formulario solicitud de citas</h2>
+            <h3>Datos del paciente:</h3>
+            <div class="DatosPaci">
+                <p class="celdaDato">
+                    <label for="nombres">Nombres:</label>
+                    <input type="text" class="inputReser" id="nombres" name="nombres"></p>
+                <p class="celdaDato">
+                    <label for="apellidos">Apellidos: </label>
+                    <input type="text" class="inputReser" id="apellidos" name="apellidos"></p>
+                <p class="celdaDato">
+                    <label for="cedula">Cedula: </label>
+                    <input type="number" class="inputReser" id="cedula" name="cedula"></p>
+                <p class="celdaDato">
+                    <label for="edad">Edad: </label>
+                    <input type="number" class="inputReser" id="edad" name="edad"></p>
+                <p class="celdaDato largo">
+                    <label for="sexo">Sexo: </label>
+                    <input type="radio" id="sexo" name="sexo" value="hombre"> Hombre
+                    <input type="radio" id="sexo" name="sexo" value="mujer"> Mujer</p>
+                <p class="celdaDato">
+                    <label for="telefono">Telefono: </label>
+                    <input type="number" class="inputReser" id="telefono" name="telefono"></p>
+            </div>
+            <div class="">
+                <h3>Datos de la cita:</h3>
+                <p><label for="">Especialida:</label>
+                <select name="especialida" id="especialidad">
+                    <option value="Medicina General">Medicina General</option>
+                    <option value="Ginecología">Ginecología</option>
+                    <option value="Cardiología">Cardiología</option>
+                    <option value="Odontología">Odontología</option>
+                </select></p>
+                <p><label for="">Fecha:</label>
+                <input type="datetime-local" name="fecha" id="fecha"></p>
+                <p><label for="">Descripcion del malestar:</label></p>
+                <p><textarea name="descripcion" id="descripcion" cols="50" rows="10"></textarea></p>
+            </div>
+            <button type="submit" class="boton">Reservar</button>
+        </form>
+    </div>
+    </div>
+</body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+<script src="../js/reservaCita.js" ></script>
+</html>
