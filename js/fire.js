@@ -15,6 +15,7 @@
   ////
 //Registro Usuario 
 const formRegistro = document.querySelector('#formregis');
+const Carga = document.querySelector('#contenedorCarga');
 if(formRegistro){
     formRegistro.addEventListener('submit', e =>{
         e.preventDefault();
@@ -48,6 +49,8 @@ if(formRegistro){
 const formIngresar = document.querySelector('#formIngresar');
 if(formIngresar){
     formIngresar.addEventListener('submit', e =>{
+        Carga.style.visibility = 'visible';
+        Carga.style.opacity = '1';
         e.preventDefault();
         const correo = document.querySelector('#logiCorreo').value;
         const password = document.querySelector('#logiPassword').value;

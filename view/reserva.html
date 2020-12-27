@@ -19,45 +19,50 @@
             </ul>
         </nav>
     </header>
-    <div class="contenedor">
+    <div id="contenedorCarga">
+        <div id="carga"></div>
+    </div>
+    <div class="contenedorReserva">
     <div class="FormReserva">
         <form id="ReservaCita">
             <h2 class="titulo">formulario solicitud de citas</h2>
             <h3>Datos del paciente:</h3>
             <div class="DatosPaci">
-                <p class="celdaDato">
+                <p class="celdaDatoL">
                     <label for="nombres">Nombres:</label>
-                    <input type="text" class="inputReser" id="nombres" name="nombres"></p>
-                <p class="celdaDato">
+                    <input type="text" class="inputReser" id="nombres" name="nombres" required></p>
+                <p class="celdaDatoR">
                     <label for="apellidos">Apellidos: </label>
-                    <input type="text" class="inputReser" id="apellidos" name="apellidos"></p>
-                <p class="celdaDato">
-                    <label for="cedula">Cedula: </label>
-                    <input type="number" class="inputReser" id="cedula" name="cedula"></p>
-                <p class="celdaDato">
+                    <input type="text" class="inputReser" id="apellidos" name="apellidos" required></p>
+                <p class="celdaDatoL">
+                    <label for="cedula">Cédula: </label>
+                    <input type="number" class="inputReser" id="cedula" name="cedula" required></p>
+                <p class="celdaDatoR">
                     <label for="edad">Edad: </label>
-                    <input type="number" class="inputReser" id="edad" name="edad"></p>
-                <p class="celdaDato largo">
-                    <label for="sexo">Sexo: </label>
-                    <input type="radio" id="sexo" name="sexo" value="hombre"> Hombre
-                    <input type="radio" id="sexo" name="sexo" value="mujer"> Mujer</p>
-                <p class="celdaDato">
-                    <label for="telefono">Telefono: </label>
-                    <input type="number" class="inputReser" id="telefono" name="telefono"></p>
+                    <input type="number" class="inputReser" id="edad" name="edad" required></p>
+                <p class="celdaDatoL">
+                    <label for="genero">Género: </label>
+                    <input type="radio" id="sexo" name="genero" value="masculino"> Masculino
+                    <input type="radio" id="sexo" name="genero" value="femenino"> Femenino</p>
+                <p class="celdaDatoR">
+                    <label for="telefono">Teléfono: </label>
+                    <input type="number" class="inputReser" id="telefono" name="telefono" required></p>
             </div>
             <div class="">
                 <h3>Datos de la cita:</h3>
-                <p><label for="">Especialida:</label>
-                <select name="especialida" id="especialidad">
+                <p class="celdaDatoL"><label for="especialidad" class="labelReserva">Especialida:</label>
+                <select name="especialida" id="especialidad" class="inputReserC">
                     <option value="Medicina General">Medicina General</option>
                     <option value="Ginecología">Ginecología</option>
                     <option value="Cardiología">Cardiología</option>
                     <option value="Odontología">Odontología</option>
                 </select></p>
-                <p><label for="">Fecha:</label>
-                <input type="datetime-local" name="fecha" id="fecha"></p>
-                <p><label for="">Descripcion del malestar:</label></p>
-                <p><textarea name="descripcion" id="descripcion" cols="50" rows="10"></textarea></p>
+                <p class="celdaDatoL"><label for="fecha" class="labelReserva">Fecha:</label>
+                <input type="date" class="inputReserC" name="fecha" id="fecha" required></p>
+                <p class="celdaDatoL"><label for="hora" class="labelReserva">Hora:</label>
+                    <input type="time" class="inputReserC" name="hora" id="hora" required></p>
+                <p class="celdaDatoL"><label for="descripcion" >Descripcion del malestar:</label></p>
+                <p class="celdaDatoL"><textarea name="descripcion" id="descripcion" cols="50" rows="10"></textarea></p>
             </div>
             <button type="submit" class="boton">Reservar</button>
         </form>
