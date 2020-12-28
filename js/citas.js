@@ -57,7 +57,7 @@ if(ContenidoConsulta){
                         <td>${doc.data().genero}</td>
                         <td>${doc.data().telefono}</td>
                         <td>${doc.data().correo}</td>
-                        <td><button class='btnVer' data-id='${citas.id}'>Ver</button></td>
+                        <td><button class='btnVer' data-id='${citas.id}'>Detalle</button></td>
                     </tr>`;
                 const btnVer = document.querySelectorAll('.btnVer');
                 
@@ -209,7 +209,7 @@ function Pintar(querySnapshot){
                 <td>${doc.data().genero}</td>
                 <td>${doc.data().telefono}</td>
                 <td>${doc.data().correo}</td>
-                <td><button class='btnVer' data-id='${citas.id}'>Ver</button></td>
+                <td><button class='btnVer' data-id='${citas.id}'>Detalle</button></td>
             </tr>`;
             const btnVer = document.querySelectorAll('.btnVer');
             btnVer.forEach(btn =>{

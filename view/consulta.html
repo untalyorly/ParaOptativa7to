@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
     <link rel="stylesheet" href="../css/style.css">
     <title>Optativa I</title>
 </head>
@@ -22,21 +23,21 @@
         <div class="cabecera">
             <h1>Lista de Citas</h1>
             <form id="BusquedaCita" class="BusquedaCita">
-                <p>
-                  <select name="busquedaPor" id="busquedaPor">
-                    <option value="cedula">Cedula</option>
-                    <option value="nombres">Nombres</option>
-                    <option value="apellidos">Apellidos</option>
-                    <option value="edad">Edad</option>                
-                </select>
-                  <input type="search" id="Busqueda" name="busqueda" placeholder="Buscar">
-                  <input type="submit" value="Buscar">
+                <p class="ConBusqueda">
+                    <input type="search" id="Busqueda" name="busqueda" placeholder="Buscar">
+                    <select name="busquedaPor" id="busquedaPor">
+                        <option value="cedula">Cedula</option>
+                        <option value="nombres">Nombres</option>
+                        <option value="apellidos">Apellidos</option>
+                        <option value="edad">Edad</option>                
+                    </select>
+                    <button type="submit" ><ion-icon name="search"></ion-icon></button>
                 </p>
             </form>
         </div>
         <div class="filtraciones">
             <form id="Filtrar">
-                <p>
+                <p class="ConBusqueda">
                   Filtrar por: 
                   <select name="filtrarPor" id="filtrarPor">
                     <option value="Medicina General">Medicina General</option>
@@ -44,17 +45,17 @@
                     <option value="Cardiología">Cardiología</option>
                     <option value="Odontología">Odontología</option>               
                 </select>
-                  <input type="submit" value="Filtrar">
+                  <button type="submit"><ion-icon name="funnel"></ion-icon></button>
                 </p>
               
             </form>
             <form id="FiltrarFecha" class="filtrafecha">
-                <p>
+                <p class="ConBusqueda">
                   Fecha desde:
                   <input type="date" name="desde" id="desde">
                   Hasta:
                   <input type="date" name="hasta" id="hasta">
-                  <input type="submit" value="Filtrar">
+                  <button type="submit"><ion-icon name="funnel"></ion-icon></button>
                 </p>
               
             </form>

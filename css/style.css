@@ -215,10 +215,50 @@ body{
 }
 .cabecera{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     padding: 30px 0;
     align-items: center;
 }
+/*busqueda*/
+#Busqueda{
+    height: 40px;
+    border: none;
+    outline: none;
+    padding: 0 25px;
+    color: #333;
+    font-size: 0.95rem;
+}
+.ConBusqueda select{
+    position: relative;
+    left: -3px;
+    border: none;
+    outline: none;
+    font-size: 0.95rem;
+    padding: 11px 16px;
+    margin: -2px;
+    border-right: 15px solid #fff;
+
+}
+.ConBusqueda button{
+    position: relative;
+    left: -5px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #4abdac;
+}
+.ConBusqueda button ion-icon{
+    color: #fff !important;
+    font-size: 0.95rem;
+}
+.ConBusqueda #desde,#hasta{
+    height: 35px;
+    padding: 0 10px;
+    font-size: 0.95rem;
+}
+/**/
 .BusquedaCita{
     text-align: end;
 }
