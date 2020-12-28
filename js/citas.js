@@ -51,12 +51,12 @@ if(ContenidoConsulta){
                 citas.id= doc.id;
                 BodyCitas.innerHTML += `
                     <tr>
+                        <td>${doc.data().cedula}</td>
                         <td>${doc.data().nombres}</td>
                         <td>${doc.data().apellidos}</td>
                         <td>${doc.data().edad}</td>
-                        <td>${doc.data().genero}</td>
+                        <td>${doc.data().especialidad}</td>
                         <td>${doc.data().telefono}</td>
-                        <td>${doc.data().correo}</td>
                         <td><button class='btnVer' data-id='${citas.id}'>Detalle</button></td>
                     </tr>`;
                 const btnVer = document.querySelectorAll('.btnVer');
@@ -67,18 +67,18 @@ if(ContenidoConsulta){
                         const doc = await getCita(e.target.dataset.id);
                         ventanaModal.classList.add('show');
                         console.log(doc.data());
-                        modal.innerHTML += `
-                        <p>Nombres: ${doc.data().nombres}</p>
-                        <p>Apellidos: ${doc.data().apellidos}</p>
-                        <p>Edad: ${doc.data().edad}</p>
-                        <p>genero: ${doc.data().genero}</p>
-                        <p>Telefono: ${doc.data().telefono}</p>
-                        <p>Correo: ${doc.data().correo}</p>
-                        <p>Especialidad: ${doc.data().especialidad}</p>
-                        <p>Descripción del malestar: ${doc.data().descripcion}</p>
-                        <p>Fecha: <input type="date" id='FechaNueva' value='${doc.data().fecha}'></p>
-                        <p>Hora: <input type="time" id='HoraNueva' value='${doc.data().hora}'></p>
-                        `;
+                        modal.innerHTML += `<div class='Detalle'>
+                        <h5>Nombres:</h5><p> ${doc.data().nombres}</p>
+                        <h5>Apellidos:</h5><p> ${doc.data().apellidos}</p>
+                        <h5>Edad:</h5><p> ${doc.data().edad}</p>
+                        <h5>genero:</h5> <p>${doc.data().genero}</p>
+                        <h5>Telefono:</h5> <p>${doc.data().telefono}</p>
+                        <h5>Correo:</h5> <p>${doc.data().correo}</p>
+                        <h5>Especialidad:</h5> <p class='large1'>${doc.data().especialidad}</p>
+                        <h5 class='large2'>Descripción del malestar:</h5> <p class='large2'>${doc.data().descripcion}</p>
+                        <h5 class='fechaHora'>Fecha:</h5> <input type="date" id='FechaNueva' value='${doc.data().fecha}'>
+                        <h5 class='fechaHora'>Hora:</h5> <input type="time" id='HoraNueva' value='${doc.data().hora}'>
+                        </div>`;
                         const FechaNueva = document.querySelector('#FechaNueva');
                         const HoraNueva = document.querySelector('#HoraNueva');
                         aprobar.addEventListener('click', async() => {
@@ -116,13 +116,13 @@ if(ContenidoAdministrador){
                 citas.id= doc.id;
                 BodyCitas.innerHTML += `
                     <tr>
+                        <td>${doc.data().cedula}</td>
                         <td>${doc.data().nombres}</td>
                         <td>${doc.data().apellidos}</td>
                         <td>${doc.data().edad}</td>
-                        <td>${doc.data().genero}</td>
+                        <td>${doc.data().especialidad}</td>
                         <td>${doc.data().telefono}</td>
-                        <td>${doc.data().correo}</td>
-                        <td><button class='btnListo' data-id='${citas.id}'>Listo</button></td>
+                        <td><button class='btnListo' data-id='${citas.id}'>Terminada</button></td>
                     </tr>`;
                 const btnListo = document.querySelectorAll('.btnListo');
                 

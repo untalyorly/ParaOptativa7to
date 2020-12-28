@@ -65,12 +65,12 @@
         <table id='CitasContenedor'>
             <thead>
                 <tr>
+                    <th>Cédula</th>
                     <th>Nombres</th>
                     <th>Apellidos</th>
                     <th>Edad</th>
-                    <th>Sexo</th>
-                    <th>Telefono</th>
-                    <th>Correo</th>
+                    <th>Especialidad</th>
+                    <th>Teléfono</th>
                     <th>Acción</th>
                 </tr>
             </thead>
@@ -80,11 +80,15 @@
     </div>
     <div class="ventanaModal" id="ventanaModal"> 
         <div class="modal">
+            <div id="cerrarModal">
+                <span>x</span>
+            </div>
             <h1>Informe de la cita</h1>
             <div id="modal"></div>
-            <button id="cerrarModal">Cerrar</button>
-            <button id="aprobar">Aprobar</button>
-            <button id="negar">Negar</button>
+            <div class="btnModal">
+                <button id="aprobar">Aprobar</button>
+                <button id="negar">Negar</button>
+            </div>
         </div>
     </div>
     </div>

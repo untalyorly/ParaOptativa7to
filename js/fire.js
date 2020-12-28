@@ -61,12 +61,12 @@ if(formIngresar){
                 VeriUsuario();
             })
             .catch(function(error) {
-                console.log(error);
-                console.log(error.code);
+                Carga.style.visibility = 'hidden';
+                Carga.style.opacity = '0';
                 if(error.code == 'auth/user-not-found' || error.code =='auth/invalid-email'){
                     swal('El usuario no esta registrado','','error');
                 }else if(error.code == 'auth/wrong-password'){
-                    swal('La contraseña esta incorrecta','','error')
+                    swal('La contraseña esta incorrecta','','error');
                 }
             });
             

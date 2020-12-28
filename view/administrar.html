@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
     <link rel="stylesheet" href="../css/style.css">
     <title>Optativa I</title>
 </head>
@@ -19,43 +20,36 @@
     </header>
     <div id="ContenidoAdministrador">
     <div class="FormReserva">
-        <form id="BusquedaCita">
-            <p>
-              Buscar por: 
-              <select name="busquedaPor" id="busquedaPor">
-                <option value="cedula">Cedula</option>
-                <option value="nombres">Nombres</option>
-                <option value="apellidos">Apellidos</option>
-                <option value="edad">Edad</option>                
-            </select>
-              <input type="search" id="Busqueda" name="busqueda">
-              <input type="submit" value="Buscar">
-            </p>
-        </form>
+        <div class="cabecera">
+            <h1>Citas Aprobadas</h1>
+            <form id="BusquedaCita" class="BusquedaCita">
+                <p class="ConBusqueda">
+                    <input type="search" id="Busqueda" name="busqueda" placeholder="Buscar">
+                    <select name="busquedaPor" id="busquedaPor">
+                        <option value="cedula">Cedula</option>
+                        <option value="nombres">Nombres</option>
+                        <option value="apellidos">Apellidos</option>
+                        <option value="edad">Edad</option>                
+                    </select>
+                    <button type="submit" ><ion-icon name="search"></ion-icon></button>
+                </p>
+            </form>
+        </div>
         <div class="eldivtable">
         <table id='CitasContenedor'>
             <thead>
                 <tr>
+                    <th>Cédula</th>
                     <th>Nombres</th>
                     <th>Apellidos</th>
                     <th>Edad</th>
-                    <th>Sexo</th>
-                    <th>Telefono</th>
-                    <th>Correo</th>
+                    <th>Especialidad</th>
+                    <th>Teléfono</th>
                     <th>Acción</th>
                 </tr>
             </thead>
             <tbody id="BodyCitas"></tbody>
         </table>
-        </div>
-    </div>
-    <div class="ventanaModal" id="ventanaModal"> 
-        <div class="modal">
-            <h1>Informe de la cita</h1>
-            <div id="modal"></div>
-            <button id="cerrarModal">Cerrar</button>
-            <button id="aprobar">Aprobar</button>
-            <button id="negar">Negar</button>
         </div>
     </div>
     </div>

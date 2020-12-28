@@ -117,18 +117,18 @@ auth.onAuthStateChanged( async user =>{
                             const doc = await getCita(e.target.dataset.id);
                             ventanaModal.classList.add('show');
                             console.log(doc.data());
-                            modal.innerHTML += `
-                            <p>Nombres: ${doc.data().nombres}</p>
-                            <p>Apellidos: ${doc.data().apellidos}</p>
-                            <p>Edad: ${doc.data().edad}</p>
-                            <p>genero: ${doc.data().genero}</p>
-                            <p>Telefono: ${doc.data().telefono}</p>
-                            <p>Correo: ${doc.data().correo}</p>
-                            <p>Especialidad: ${doc.data().especialidad}</p>
-                            <p>Descripción del malestar: ${doc.data().descripcion}</p>
-                            <p>Fecha: ${doc.data().fecha}</p>
-                            <p>Hora: ${doc.data().hora}</p>
-                            `;
+                            modal.innerHTML += `<div class='Detalle'>
+                            <h5>Nombres:</h5><p> ${doc.data().nombres}</p>
+                            <h5>Apellidos:</h5><p> ${doc.data().apellidos}</p>
+                            <h5>Edad:</h5><p> ${doc.data().edad}</p>
+                            <h5>genero:</h5> <p>${doc.data().genero}</p>
+                            <h5>Telefono:</h5> <p>${doc.data().telefono}</p>
+                            <h5>Correo:</h5> <p>${doc.data().correo}</p>
+                            <h5>Especialidad:</h5> <p class='large1'>${doc.data().especialidad}</p>
+                            <h5 class='large2'>Descripción del malestar:</h5> <p class='large2'>${doc.data().descripcion}</p>
+                            <h5 class='fechaHora'>Fecha:</h5><p> ${doc.data().fecha}</p>
+                            <h5 class='fechaHora'>Hora:</h5><p> ${doc.data().hora}</p>
+                            </div>`;
                         })
                     })
                     cerrarModal.addEventListener('click', () => {
