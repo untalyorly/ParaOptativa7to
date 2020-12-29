@@ -17,6 +17,8 @@
 const formRegistro = document.querySelector('#formregis');
 const formADoctor = document.querySelector('#formADoctor');
 const Carga = document.querySelector('#contenedorCarga');
+const men = document.querySelector('#men');
+
 if(formRegistro){
     formRegistro.addEventListener('submit', e =>{
         e.preventDefault();
@@ -104,11 +106,13 @@ if(formIngresar){
 const VeriUsuario = ()=>{
     auth.onAuthStateChanged( async user =>{
         if(user){
+            
             const getPacientes = await db.collection("pacientes").where("correo", "==", `${user.email}`).get();
             const getDoctores = await db.collection("doctores").where("correo", "==", `${user.email}`).get();
             if(getPacientes.docChanges().length >= 1){
                 getPacientes.forEach(doc => {
                     const pacientes = doc.data().correo;
+                    //menuOcul2.style.display= 'none';
                     window.location.href='../view/principal.html';
                 })
             }else if(getDoctores.docChanges().length >= 1){
@@ -125,14 +129,33 @@ const VeriUsuario = ()=>{
     });
 }
 
+auth.onAuthStateChanged( async user =>{
+    if(user){
+        console.log('logiado');
+        men.innerHTML += `
+        <li><a href="#">Inicio</a></li>
+        <li><a href="./reserva.html">Reservar Cita</a></li>
+        <li><a href="./miscitas.html">Mis Citas</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#" id="sesion">Cerrar sesión</a></li>
+        `
+        //Cerrar sesión
+        const sesion = document.querySelector('#sesion');
+        sesion.addEventListener('click',e =>{
+            console.log('cerrar');
+            e.preventDefault();
+            auth.signOut().then(()=>{
+                window.location.href='../view/login.html';
+            })
+        })
+    }else{
+        men.innerHTML += `
+        <li><a href="#"">Inicio</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="./login.html" >iniciar sesión</a></li>
+        `
 
-//Cerrar sesión
-const sesion = document.querySelector('#sesion');
-sesion.addEventListener('click',e =>{
-    console.log('cerrar');
-    e.preventDefault();
-    auth.signOut().then(()=>{
-        window.location.href='../view/login.html';
-    })
-})
+    }
+});
+
 

@@ -3,12 +3,128 @@
     margin: 0;
     font-family: 'Poppins', sans-serif;
 }
-body{
+.body{
     background-image: url('../assets/img/fondo3.jpg');
     background-size: cover;
     background-attachment: fixed;
     height: 100vh; 
 }
+
+/*Paguina de Inicio*/
+.ContenidoInicio{
+    background-image: url('../assets/img/inicio.jpg');
+    background-size: cover;
+    background-position: center center;
+    height: 100vh; 
+    display: flex;
+    align-items: center;
+}
+.Bienvenido{
+    width: 35%;
+    margin: 0 100px;
+}
+.Servicio{
+    display: grid;
+    grid-template-columns: 1fr 1fr  1fr 1fr;
+}
+.servicios{
+    background: #4abdac;
+    color: #fff;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #fff;
+}
+.Nosotro{
+    display: grid;
+    grid-template-columns: 3fr 4fr;
+    height: 100vh;
+}
+.imgNosotro{
+    background-image: url('../assets/img/servicio.jpg');
+    background-size: cover;
+    background-position: center center;
+}
+.palabras{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.palabras div{
+    width: 70%;
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.palabras div h4{
+    margin-top: 35px;
+    color: #828590;
+}
+.palabras div p{
+    margin-top: 8px;
+    color: #828590;
+}
+/**/
+/*FOOTER*/
+footer{
+    background-color: #4abdac;
+    height: auto;
+    width: 100%;
+    padding-top: 40px;
+    color: #fff;
+}
+.footerContenido{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.footerContenido h3{
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+.footerContenido p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+.social{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+.social li{
+    margin: 0 10px;
+}
+.social a{
+    text-decoration: none;
+    color: #fff;
+}
+.social a ion-icon{
+    font-size: 1.1rem;
+}
+.footerCopy{
+    background: #008672;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+.footerCopy p{
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+.footerCopy span{
+    text-transform: uppercase;
+    opacity: .4;
+    font-weight: 200;
+}
+/**/
 /*Rueda Cargando*/
 
 #contenedorCarga{
@@ -159,6 +275,9 @@ body{
     display: inline-block;
     padding: 0px 15px;
     transition: .3s;
+}
+.menuOcul{
+    display: none;
 }
 .menu li a:hover{
     color: #4abdac;
@@ -367,7 +486,7 @@ table {
     margin: 30px 0;
     font-size: 1.1rem;
 }
-.Detalle h5,p{
+.Detalle h5,.Detalle p{
     padding: 10px;
 }
 .Detalle input{
