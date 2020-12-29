@@ -15,6 +15,7 @@
   ////
 //Registro Usuario 
 const formRegistro = document.querySelector('#formregis');
+const formADoctor = document.querySelector('#formADoctor');
 const Carga = document.querySelector('#contenedorCarga');
 if(formRegistro){
     formRegistro.addEventListener('submit', e =>{
@@ -39,6 +40,31 @@ if(formRegistro){
                
                 console.log('registrado')
             })
+    })
+}
+if(formADoctor){
+    formADoctor.addEventListener('submit', e =>{
+        e.preventDefault();
+        const nombre = document.querySelector('#nombre').value;
+        const apellido = document.querySelector('#apellido').value;
+        const especialidad = document.querySelector('#especialidad').value;
+        const correo = document.querySelector('#correo').value;
+        const password = document.querySelector('#password').value;
+        auth
+            .createUserWithEmailAndPassword(correo,password)
+            .then(userCredential => {
+                db.collection('doctores').doc().set({
+                    nombre,
+                    apellido,
+                    especialidad,
+                    correo,
+                    password
+                });
+                swal('Doctor Añadido con exito!','','success')
+                formADoctor.reset();
+                console.log('registrado')
+            })
+        
     })
 }
 
@@ -79,15 +105,19 @@ const VeriUsuario = ()=>{
     auth.onAuthStateChanged( async user =>{
         if(user){
             const getPacientes = await db.collection("pacientes").where("correo", "==", `${user.email}`).get();
+            const getDoctores = await db.collection("doctores").where("correo", "==", `${user.email}`).get();
             if(getPacientes.docChanges().length >= 1){
-                console.log('encontre');
                 getPacientes.forEach(doc => {
                     const pacientes = doc.data().correo;
-                    console.log(pacientes);
                     window.location.href='../view/principal.html';
                 })
+            }else if(getDoctores.docChanges().length >= 1){
+                getDoctores.forEach(doc => {
+                    const doctores = doc.data().correo;
+                    window.location.href='../view/consulta.html';
+                })
             }else{
-                window.location.href='../view/consulta.html';
+                window.location.href='../view/Admin.html';
             }
         }else{
             console.log('no login');

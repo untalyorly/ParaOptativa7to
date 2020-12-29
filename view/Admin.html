@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Optativa I</title>
+</head>
+<body>
+    <header class="menu">
+        <img src="../assets/img/logo.png" alt="logo">
+        <nav>
+            <ul>
+                <li><a href="#" id="sesion">Cerrar sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="contenedorCarga">
+        <div id="carga"></div>
+    </div>
+    <div class="contenedor">
+        <div class="contLogin">
+            <form class="formlogin" id="formADoctor">
+                <div>
+                    <div><h2 class="titulo">Añadir Doctor</h2></div>
+                </div>
+                <div class="div2">
+                    <div><input type="text" class="input" name="nombre" id='nombre' placeholder="Nombres"></div>
+                    <div><input type="text" class="input" name="apellido" id="apellido" placeholder="Apellidos"></div>    
+                </div>
+                <div class="div">
+                    <p class="celdaDatoL"><label for="especialidad" class="labelReserva">Especialida:</label>
+                        <select name="especialida" id="especialidad" class="inputReserC">
+                            <option value="Medicina General">Medicina General</option>
+                            <option value="Ginecología">Ginecología</option>
+                            <option value="Cardiología">Cardiología</option>
+                            <option value="Odontología">Odontología</option>
+                        </select></p>
+                </div>
+                <div class="div">
+                    <input type="email" class="input" name="correo" id="correo" placeholder="Correo">
+                </div>
+                <div class="div">
+                    <input type="password" class="input" name="password" id="password" placeholder="Contraseña">
+                </div>
+                <button type="submit" class="boton">Registrarse</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+<script src="../js/fire.js" ></script>
+</html>
