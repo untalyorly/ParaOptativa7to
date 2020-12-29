@@ -55,74 +55,94 @@
     width: 70%;
     font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
-.palabras div h4{
+.palabras div h4, .Bienvenido h4{
     margin-top: 35px;
     color: #828590;
 }
-.palabras div p{
+.palabras div p, .Bienvenido p{
     margin-top: 8px;
     color: #828590;
 }
 /**/
-/*FOOTER*/
-footer{
-    background-color: #4abdac;
-    height: auto;
-    width: 100%;
-    padding-top: 40px;
-    color: #fff;
+/*Pagina Nosotros*/
+.Nosotros2{
+    display: grid;
+    grid-template-columns: 4fr 3fr;
+    height: 100vh;
 }
-.footerContenido{
+
+.Quienes{
+    width: 70%;
+    margin: 0 100px; 
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    text-align: center;
+    justify-content: center;
 }
-.footerContenido h3{
-    font-size: 1.8rem;
-    font-weight: 400;
-    text-transform: capitalize;
-    line-height: 3rem;
+.linea{
+    margin: 15px 0;
+    width: 20%;
+    border:2px solid #4abdac ;
 }
-.footerContenido p{
-    max-width: 500px;
-    margin: 10px auto;
-    line-height: 28px;
-    font-size: 14px;
+.Quienes p{
+    text-align: justify;
+    margin-top: 8px;
+    color: #828590;
 }
-.social{
-    list-style: none;
+.imgPagiNosotros{
+    background-image: url('../assets/img/nosotros1.jpg');
+    background-size: cover;
+    background-position: center center;
+}
+.ContenValores{
+    height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 1rem 0 3rem 0;
 }
-.social li{
-    margin: 0 10px;
+.ContenValores h1{
+    margin-bottom: 100px;
 }
-.social a{
-    text-decoration: none;
+.Valores{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin: 0 50px;
+}
+.valoresL{
+    background: #4abdac;
+    width: auto;
     color: #fff;
+    padding: 50px;
+    text-align: center;
+    border: 3px solid #fff;
 }
-.social a ion-icon{
-    font-size: 1.1rem;
+.valoresL p{
+    margin-top: 20px;
 }
-.footerCopy{
-    background: #008672;
-    width: 100%;
-    padding: 20px 0;
+.PContacto{
+    padding: 50px 0;
+}
+.PContacto h1{
+ text-align: center;
+}
+.contacto{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 50px;
+}
+.contactos{
+    padding: 50px;
     text-align: center;
 }
-.footerCopy p{
-    font-size: 14px;
-    word-spacing: 2px;
-    text-transform: capitalize;
+.imgContac{
+    border-radius: 100%;
+    overflow: hidden;
+    width: 80px;
+    margin: 30px auto;
 }
-.footerCopy span{
-    text-transform: uppercase;
-    opacity: .4;
-    font-weight: 200;
+.imgContac img{
+    max-width: 100%;
+    height: auto;
 }
 /**/
 /*Rueda Cargando*/
@@ -514,5 +534,66 @@ table {
     color: #fff;
     margin: 0 20px;
     font-size: 1.1rem;
+}
+/**/
+/*FOOTER*/
+footer{
+    background-color: #4abdac;
+    height: auto;
+    width: 100%;
+    padding-top: 40px;
+    color: #fff;
+}
+.footerContenido{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.footerContenido h3{
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+.footerContenido p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+.social{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+.social li{
+    margin: 0 10px;
+}
+.social a{
+    text-decoration: none;
+    color: #fff;
+}
+.social a ion-icon{
+    font-size: 1.1rem;
+}
+.footerCopy{
+    background: #008672;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+.footerCopy p{
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+.footerCopy span{
+    text-transform: uppercase;
+    opacity: .4;
+    font-weight: 200;
 }
 /**/

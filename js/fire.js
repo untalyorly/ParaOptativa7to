@@ -113,7 +113,7 @@ const VeriUsuario = ()=>{
                 getPacientes.forEach(doc => {
                     const pacientes = doc.data().correo;
                     //menuOcul2.style.display= 'none';
-                    window.location.href='../view/principal.html';
+                    window.location.href='../view/reserva.html';
                 })
             }else if(getDoctores.docChanges().length >= 1){
                 getDoctores.forEach(doc => {
@@ -133,10 +133,10 @@ auth.onAuthStateChanged( async user =>{
     if(user){
         console.log('logiado');
         men.innerHTML += `
-        <li><a href="#">Inicio</a></li>
+        <li><a href="./principal.html">Inicio</a></li>
         <li><a href="./reserva.html">Reservar Cita</a></li>
         <li><a href="./miscitas.html">Mis Citas</a></li>
-        <li><a href="#">Nosotros</a></li>
+        <li><a href="./nosotros.html">Nosotros</a></li>
         <li><a href="#" id="sesion">Cerrar sesión</a></li>
         `
         //Cerrar sesión
@@ -150,8 +150,8 @@ auth.onAuthStateChanged( async user =>{
         })
     }else{
         men.innerHTML += `
-        <li><a href="#"">Inicio</a></li>
-        <li><a href="#">Nosotros</a></li>
+        <li><a href="./principal.html"">Inicio</a></li>
+        <li><a href="./nosotros.html">Nosotros</a></li>
         <li><a href="./login.html" >iniciar sesión</a></li>
         `
 
