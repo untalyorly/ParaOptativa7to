@@ -2,7 +2,8 @@
 Micro Proyecto para la materia Optativa I
 
 
-Cuenta del Administrador
+## Cuentas
+# Cuenta del Administrador:
     usuario: administrador1@gmail.com
     contraseña: admin1
 
