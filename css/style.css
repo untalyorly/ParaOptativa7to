@@ -419,6 +419,23 @@
     padding: 0 10px;
     font-size: 0.95rem;
 }
+.Limpiare{
+    padding: 10px;
+    color: #fff;
+    height: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #4abdac;
+}
+.ojito{
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+}
+.ojito.activo{
+    color: dodgerblue;
+}
 /**/
 .BusquedaCita{
     text-align: end;

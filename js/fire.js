@@ -20,6 +20,18 @@ const formADoctor = document.querySelector('#formADoctor');
 const Carga = document.querySelector('#contenedorCarga');
 const men = document.querySelector('#men');
 
+const ojo = document.getElementById('ojo');
+const pwp = document.getElementById('logiPassword');
+if(ojo){
+    ojo.addEventListener('click',MostrarPassword);
+    function MostrarPassword(){
+        ojo.classList.toggle('activo');
+        (pwp.type == 'password') ? pwp.type = 'text':
+        pwp.type = 'password';
+    }
+}
+
+
 const expresiones ={
     Exnombre: /^[a-zA-ZÀ-ÿ\s]{1,50}$/, // Letras y espacios, pueden llevar acentos.
 	Expassword: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/, // 4 a 12 digitos.
