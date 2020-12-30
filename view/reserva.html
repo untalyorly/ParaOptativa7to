@@ -31,23 +31,33 @@
             <div class="DatosPaci">
                 <p class="celdaDatoL">
                     <label for="nombres">Nombres:</label>
-                    <input type="text" class="inputReser" id="nombres" name="nombres" required></p>
+                    <input type="text" class="inputReser" id="nombres" name="nombres" required>
+                    <small class="Error" id="ErrorVnombre">El nombre no debe contener ningun caracter especial y Max.50</small>
+                </p>
                 <p class="celdaDatoR">
                     <label for="apellidos">Apellidos: </label>
-                    <input type="text" class="inputReser" id="apellidos" name="apellidos" required></p>
+                    <input type="text" class="inputReser" id="apellidos" name="apellidos" required>
+                    <small class="Error" id="ErrorVapellido">El apellido no debe contener ningun caracter especial y Max.50</small>
+                </p>
                 <p class="celdaDatoL">
                     <label for="cedula">Cédula: </label>
-                    <input type="number" class="inputReser" id="cedula" name="cedula" required></p>
+                    <input type="number" class="inputReser" id="cedula" name="cedula" required>
+                    <small class="Error" id="ErrorVcedula">la cédula no debe contener ningun caracter especial y solo 10 digitos</small>
+                </p>
                 <p class="celdaDatoR">
                     <label for="edad">Edad: </label>
-                    <input type="number" class="inputReser" id="edad" name="edad" required></p>
+                    <input type="number" class="inputReser" id="edad" name="edad" required>
+                    <small class="Error" id="ErrorVedad">la edad, numeros enteros positivos, no debe contener ningun caracter especial y Max.150 años</small>
+                </p>
                 <p class="celdaDatoL">
                     <label for="genero">Género: </label>
                     <input type="radio" id="sexo" name="genero" value="masculino"> Masculino
                     <input type="radio" id="sexo" name="genero" value="femenino"> Femenino</p>
                 <p class="celdaDatoR">
                     <label for="telefono">Teléfono: </label>
-                    <input type="number" class="inputReser" id="telefono" name="telefono" required></p>
+                    <input type="number" class="inputReser" id="telefono" name="telefono" required>
+                    <small class="Error" id="ErrorVtelefono">El teléfono no debe contener ningun caracter especial y Max.10</small>
+                </p>
             </div>
             <div class="">
                 <h3>Datos de la cita:</h3>
@@ -63,7 +73,7 @@
                 <p class="celdaDatoL"><label for="hora" class="labelReserva">Hora:</label>
                     <input type="time" class="inputReserC" name="hora" id="hora" required></p>
                 <p class="celdaDatoL"><label for="descripcion" >Descripcion del malestar:</label></p>
-                <p class="celdaDatoL"><textarea name="descripcion" id="descripcion" cols="50" rows="10"></textarea></p>
+                <p class="celdaDatoL"><textarea name="descripcion" id="descripcion" cols="50" rows="10" maxlength="200"></textarea></p>
             </div>
             <button type="submit" class="boton">Reservar</button>
         </form>

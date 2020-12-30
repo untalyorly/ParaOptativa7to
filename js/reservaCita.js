@@ -18,6 +18,8 @@ const BodyCitas = document.querySelector('#BodyCitas');
 const Carga = document.querySelector('#contenedorCarga');
 //RESERVAR CITA
 const ReservaCita = document.querySelector('#ReservaCita');
+const inputs = document.querySelectorAll('#ReservaCita input');
+
 const GuardaCitas = (nombres,apellidos,cedula,edad,genero,telefono,correo,especialidad,fecha,hora,descripcion,estado) =>
     db.collection('citas').doc().set({
         nombres,
@@ -40,11 +42,74 @@ const GuardaCitas = (nombres,apellidos,cedula,edad,genero,telefono,correo,especi
 auth.onAuthStateChanged( async user =>{
     if(user){
         //Reserva
+
         if(ReservaCita){
+
+            //Validaciones
+            const expresiones ={
+                Exnombre: /^[a-zA-ZÀ-ÿ\s]{1,50}$/, // Letras y espacios, pueden llevar acentos.
+                Expassword: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/, // 4 a 12 digitos.
+                Excorreo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+                Excedula: /^\d{10,10}$/,
+                Extelefono: /^\d{9,10}$/
+            }
+            const campos={
+                Vnombre: false,
+                Vapellido: false,
+                Vcedula: false,
+                Vedad: false,
+                Vtelefono: false,
+            }
+            const ValidarInputs = (e) => {
+                console.log(e.target.name);
+                switch(e.target.name){
+                    case 'nombres':
+                        
+                        validadCampo(expresiones.Exnombre, e.target, 'Vnombre')
+                    break;
+                    case 'apellidos':
+                        validadCampo(expresiones.Exnombre, e.target, 'Vapellido')
+                    break;
+                    case 'cedula':
+                        validadCampo(expresiones.Excedula, e.target, 'Vcedula')
+                    break;
+                    case 'edad':
+                        const error = document.querySelector('#ErrorVedad')
+                        if(e.target.value > 0 && e.target.value < 150){
+                            console.log('correcto');
+                            error.style.visibility = 'hidden';
+                            campos['Vedad'] = true;
+                        }else{
+                            console.log('incorrecto');
+                            error.style.visibility = 'visible';
+                            campos['Vedad'] = false;
+                        }
+                    break;
+                    case 'telefono':
+                        validadCampo(expresiones.Extelefono, e.target, 'Vtelefono')
+                    break;
+                }
+            }
+            const validadCampo= (expresion, input, campo)=>{
+                const error = document.querySelector(`#Error${campo}`)
+                if(expresion.test(input.value)){
+                    console.log('correcto');
+                    error.style.visibility = 'hidden';
+                    campos[campo] = true;
+                }else{
+                    console.log('incorrecto');
+                    error.style.visibility = 'visible';
+                    campos[campo] = false;
+                }
+            }
+            ///
+            inputs.forEach((input) => {
+                input.addEventListener('keyup', ValidarInputs);
+            });
+
+
             ReservaCita.addEventListener('submit', async (e) =>{
                 e.preventDefault();
-                Carga.style.visibility = 'visible';
-                Carga.style.opacity = '1';
                 const nombres = ReservaCita['nombres'];
                 const apellidos = ReservaCita['apellidos'];
                 const cedula = ReservaCita['cedula'];
@@ -57,22 +122,29 @@ auth.onAuthStateChanged( async user =>{
                 const fecha = ReservaCita['fecha'];
                 const hora = ReservaCita['hora'];
                 const descripcion = ReservaCita['descripcion'];
-                await GuardaCitas(
-                    nombres.value,
-                    apellidos.value,
-                    cedula.value,
-                    edad.value,
-                    genero.value,
-                    telefono.value,
-                    user.email,
-                    especialidad.value,
-                    fecha.value,
-                    hora.value,
-                    descripcion.value,
-                    estado
-                );
-                ReservaCita.reset();
-                nombres.focus();
+                if(campos.Vnombre && campos.Vapellido && campos.Vcedula && campos.Vedad && campos.Vtelefono){
+                    Carga.style.visibility = 'visible';
+                    Carga.style.opacity = '1';
+                    await GuardaCitas(
+                        nombres.value,
+                        apellidos.value,
+                        cedula.value,
+                        edad.value,
+                        genero.value,
+                        telefono.value,
+                        user.email,
+                        especialidad.value,
+                        fecha.value,
+                        hora.value,
+                        descripcion.value,
+                        estado
+                    );
+                    ReservaCita.reset();
+                    nombres.focus();
+                }else{
+                    console.log('no correcto');
+                }
+                
             });
         }else{    
             //Mis citas

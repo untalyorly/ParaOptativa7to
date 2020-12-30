@@ -15,18 +15,67 @@
   ////
 //Registro Usuario 
 const formRegistro = document.querySelector('#formregis');
+const inputs = document.querySelectorAll('#formregis input');
 const formADoctor = document.querySelector('#formADoctor');
 const Carga = document.querySelector('#contenedorCarga');
 const men = document.querySelector('#men');
 
+const expresiones ={
+    Exnombre: /^[a-zA-ZÀ-ÿ\s]{1,50}$/, // Letras y espacios, pueden llevar acentos.
+	Expassword: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/, // 4 a 12 digitos.
+	Excorreo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+}
+const campos={
+    Vnombre: false,
+    Vapellido: false,
+    Vcorreo: false,
+    Vpassword: false
+}
+const ValidarInputs = (e) => {
+    switch(e.target.name){
+        case 'nombre':
+            validadCampo(expresiones.Exnombre, e.target, 'Vnombre')
+        break;
+        case 'apellido':
+            validadCampo(expresiones.Exnombre, e.target, 'Vapellido')
+        break;
+        case 'correo':
+            validadCampo(expresiones.Excorreo, e.target, 'Vcorreo')
+        break;
+        case 'password':
+            validadCampo(expresiones.Expassword, e.target, 'Vpassword')
+        break;
+    }
+}
+const validadCampo= (expresion, input, campo)=>{
+    const error = document.querySelector(`#Error${campo}`)
+    if(expresion.test(input.value)){
+        console.log('correcto');
+        error.style.visibility = 'hidden';
+        campos[campo] = true;
+    }else{
+        console.log('incorrecto');
+        error.style.visibility = 'visible';
+        campos[campo] = false;
+    }
+}
+
 if(formRegistro){
+    
+    inputs.forEach((input) => {
+        input.addEventListener('keyup', ValidarInputs);
+    });
+    
     formRegistro.addEventListener('submit', e =>{
         e.preventDefault();
-        const nombre = document.querySelector('#nombre').value;
-        const apellido = document.querySelector('#apellido').value;
-        const correo = document.querySelector('#correo').value;
-        const password = document.querySelector('#password').value;
-        auth
+        console.log(campos.Vnombre+'+'+ campos.Vapellido+'+'+ campos.Vcorreo+'+'+ campos.Vpassword);
+        if(campos.Vnombre && campos.Vapellido && campos.Vcorreo && campos.Vpassword){
+            const nombre = document.querySelector('#nombre').value;
+            const apellido = document.querySelector('#apellido').value;
+            const correo = document.querySelector('#correo').value;
+            const password = document.querySelector('#password').value;
+            console.log('correcto');
+            auth
             .createUserWithEmailAndPassword(correo,password)
             .then(userCredential => {
                 db.collection('pacientes').doc().set({
@@ -42,6 +91,16 @@ if(formRegistro){
                
                 console.log('registrado')
             })
+            
+            .catch(function(error) {
+                console.log('ERRO');
+                if(error.code =='auth/invalid-email'){
+                    swal('El correo es invalido','','error');
+                }
+            });
+        }else{
+            console.log('no correcto');
+        }
     })
 }
 if(formADoctor){
@@ -101,6 +160,9 @@ if(formIngresar){
     })
 }
 
+////Validadr inputs
+
+
 /////Verificar Usuario
 
 const VeriUsuario = ()=>{
@@ -158,4 +220,14 @@ auth.onAuthStateChanged( async user =>{
     }
 });
 
+const sesionAdmin = document.querySelector('#sesionAdmin');
+if(sesionAdmin){
+    sesionAdmin.addEventListener('click',e =>{
+        console.log('cerrar');
+        e.preventDefault();
+        auth.signOut().then(()=>{
+            window.location.href='../view/login.html';
+        })
+    })
+}
 
