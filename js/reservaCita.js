@@ -217,7 +217,7 @@ auth.onAuthStateChanged( async user =>{
 
     }else{
         console.log('no logiado');
-        window.location.href='../view/login.html';
+        window.location.href='../login.html';
     }
 
 });
@@ -227,6 +227,6 @@ const sesion = document.querySelector('#sesion');
 sesion.addEventListener('click',e =>{
     e.preventDefault();
     auth.signOut().then(()=>{
-        window.location.href='../view/login.html';
+        window.location.href='../login.html';
     })
 })

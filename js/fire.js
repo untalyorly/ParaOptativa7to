@@ -101,7 +101,7 @@ if(formRegistro){
                 });
                 swal('Usuario Registrado con exito!','','success')
                 .then((value) => {
-                    window.location.href='../view/login.html';
+                    window.location.href='../login.html';
                   });
                
                 console.log('registrado')
@@ -185,15 +185,15 @@ const VeriUsuario = ()=>{
                 getPacientes.forEach(doc => {
                     const pacientes = doc.data().correo;
                     //menuOcul2.style.display= 'none';
-                    window.location.href='../view/reserva.html';
+                    window.location.href='../reserva.html';
                 })
             }else if(getDoctores.docChanges().length >= 1){
                 getDoctores.forEach(doc => {
                     const doctores = doc.data().correo;
-                    window.location.href='../view/consulta.html';
+                    window.location.href='../consulta.html';
                 })
             }else{
-                window.location.href='../view/Admin.html';
+                window.location.href='../Admin.html';
             }
         }else{
             console.log('no login');
@@ -218,7 +218,7 @@ auth.onAuthStateChanged( async user =>{
             console.log('cerrar');
             e.preventDefault();
             auth.signOut().then(()=>{
-                window.location.href='../view/login.html';
+                window.location.href='../login.html';
             })
         })
     }else{
@@ -238,7 +238,7 @@ if(sesionAdmin){
         console.log('cerrar');
         e.preventDefault();
         auth.signOut().then(()=>{
-            window.location.href='../view/login.html';
+            window.location.href='../login.html';
         })
     })
 }
