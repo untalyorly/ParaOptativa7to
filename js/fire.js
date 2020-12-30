@@ -22,6 +22,7 @@ const men = document.querySelector('#men');
 
 const ojo = document.getElementById('ojo');
 const pwp = document.getElementById('logiPassword');
+//mostrar contraseña
 if(ojo){
     ojo.addEventListener('click',MostrarPassword);
     function MostrarPassword(){
@@ -31,7 +32,7 @@ if(ojo){
     }
 }
 
-
+//expresiones iregulares
 const expresiones ={
     Exnombre: /^[a-zA-ZÀ-ÿ\s]{1,50}$/, // Letras y espacios, pueden llevar acentos.
 	Expassword: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/, // 4 a 12 digitos.
@@ -43,6 +44,7 @@ const campos={
     Vcorreo: false,
     Vpassword: false
 }
+//velidamos los inputs
 const ValidarInputs = (e) => {
     switch(e.target.name){
         case 'nombre':
@@ -72,6 +74,7 @@ const validadCampo= (expresion, input, campo)=>{
     }
 }
 
+//registramos a los pacientes
 if(formRegistro){
     
     inputs.forEach((input) => {
@@ -115,6 +118,7 @@ if(formRegistro){
         }
     })
 }
+//registramos a los doctores
 if(formADoctor){
     formADoctor.addEventListener('submit', e =>{
         e.preventDefault();
@@ -140,9 +144,7 @@ if(formADoctor){
         
     })
 }
-
 //////
-
 
 ///Ingreso de usuario
 const formIngresar = document.querySelector('#formIngresar');
@@ -172,11 +174,7 @@ if(formIngresar){
     })
 }
 
-////Validadr inputs
-
-
-/////Verificar Usuario
-
+//Verificamos al usuario
 const VeriUsuario = ()=>{
     auth.onAuthStateChanged( async user =>{
         if(user){
@@ -203,6 +201,7 @@ const VeriUsuario = ()=>{
     });
 }
 
+//Si se logea
 auth.onAuthStateChanged( async user =>{
     if(user){
         console.log('logiado');
@@ -232,6 +231,7 @@ auth.onAuthStateChanged( async user =>{
     }
 });
 
+//cerrar secion
 const sesionAdmin = document.querySelector('#sesionAdmin');
 if(sesionAdmin){
     sesionAdmin.addEventListener('click',e =>{

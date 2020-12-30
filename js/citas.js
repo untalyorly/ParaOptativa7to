@@ -64,8 +64,7 @@ if(ContenidoConsulta){
     });
 }
 
-
-//Apartado de Administracion
+//Apartado de Administracion de citas
 if(ContenidoAdministrador){
     window.addEventListener("DOMContentLoaded", (e) => {
         auth.onAuthStateChanged( async user =>{
@@ -116,7 +115,6 @@ if(ContenidoAdministrador){
     }); 
 }
 
-  
 //Busqueda
 const BusquedaCita = document.querySelector('#BusquedaCita');
 if(BusquedaCita){

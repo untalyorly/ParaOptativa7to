@@ -13,13 +13,14 @@ var firebaseConfig = {
   const db = firebase.firestore();
   ////
 
-  const getCita = (id) => db.collection('citas').doc(id).get();
+const getCita = (id) => db.collection('citas').doc(id).get();
 const BodyCitas = document.querySelector('#BodyCitas');
 const Carga = document.querySelector('#contenedorCarga');
 //RESERVAR CITA
 const ReservaCita = document.querySelector('#ReservaCita');
 const inputs = document.querySelectorAll('#ReservaCita input');
 
+//Guardamos las citas
 const GuardaCitas = (nombres,apellidos,cedula,edad,genero,telefono,correo,especialidad,fecha,hora,descripcion,estado) =>
     db.collection('citas').doc().set({
         nombres,
@@ -39,10 +40,10 @@ const GuardaCitas = (nombres,apellidos,cedula,edad,genero,telefono,correo,especi
         Carga.style.opacity = '0';
         swal('Cita Guardada','','success')
     })
+//obtenemos al usuario para reservar la cita
 auth.onAuthStateChanged( async user =>{
     if(user){
         //Reserva
-
         if(ReservaCita){
 
             //Validaciones
@@ -106,7 +107,6 @@ auth.onAuthStateChanged( async user =>{
             inputs.forEach((input) => {
                 input.addEventListener('keyup', ValidarInputs);
             });
-
 
             ReservaCita.addEventListener('submit', async (e) =>{
                 e.preventDefault();
@@ -221,9 +221,6 @@ auth.onAuthStateChanged( async user =>{
     }
 
 });
-
-
-
 
 //Cerrar sesión
 const sesion = document.querySelector('#sesion');
