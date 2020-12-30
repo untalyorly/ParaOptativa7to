@@ -11,12 +11,12 @@ Micro Proyecto para la materia Optativa I
 ### Medicina General:
     usuario: doctor1@gmail.com
     contraseña: doctor1
-Ginecología:
+### Ginecología:
     usuario: doctor2@gmail.com
     contraseña: doctor2
-Cardiología:
+### Cardiología:
     usuario: doctor3@gmail.com
     contraseña: doctor3
-Odontología:
+### Odontología:
     usuario: doctor4@gmail.com
     contraseña: doctor4
