@@ -2,13 +2,13 @@
 Micro Proyecto para la materia Optativa I
 
 
-## Cuentas
-# Cuenta del Administrador:
+# Cuentas
+## Cuenta del Administrador:
     usuario: administrador1@gmail.com
     contraseña: admin1
 
-Cuentas de los doctores:
-Medicina General:
+## Cuentas de los doctores:
+### Medicina General:
     usuario: doctor1@gmail.com
     contraseña: doctor1
 Ginecología:
