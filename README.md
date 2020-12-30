@@ -4,7 +4,7 @@ Micro Proyecto para la materia Optativa I
 
 # Cuentas
 ## Cuenta del Administrador:
-El administrador es el unico que puede creear las cuentas a los doctores.
+#### El administrador es el unico que puede creear las cuentas a los doctores.
     usuario: administrador1@gmail.com
     contraseña: admin1
 
