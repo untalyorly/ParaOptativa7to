@@ -164,10 +164,13 @@ auth.onAuthStateChanged( async user =>{
                     citas.id= doc.id;
                     if(doc.data().estado == 0){
                         var estado = 'Sin Aprobar'
+                        var color = '#292929'
                     }else if (doc.data().estado == 1){
                         var estado = 'Aprobada'
+                        var color = '#009944'
                     }else if(doc.data().estado == 2){
                         var estado = 'Negada'
+                        var color = '#cf000f'
                     }else{
                         var estado = 'Eliminada'
                     }
@@ -179,7 +182,7 @@ auth.onAuthStateChanged( async user =>{
                         <td>${doc.data().genero}</td>
                         <td>${doc.data().telefono}</td>
                         <td>${doc.data().correo}</td>
-                        <td>${estado}</td>
+                        <td style="color:${color};">${estado}</td>
                         <td><button class='btnVer' data-id='${citas.id}'>Ver</button></td>
                     </tr>`;
                     const btnVer = document.querySelectorAll('.btnVer');
